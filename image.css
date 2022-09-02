@@ -10,8 +10,8 @@ image.css
 
 /* Child Text Container */.content_img div{
  position: absolute;
- bottom: 40%;
- right: 40%;
+ bottom: 0;
+ right: 0;
  background: black;
  color: white;
  margin-bottom: 5px;
