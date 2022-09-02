@@ -1,5 +1,15 @@
 image.css
 
+.containernew {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+img {
+  margin: 5px;
+}
+
 /* Parent Container */.content_img{
  position: relative;
  width: 200px;
