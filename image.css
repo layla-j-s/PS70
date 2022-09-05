@@ -20,7 +20,7 @@ image.css
  position: absolute;
  bottom: 40%;
  top: 40%;
- left: 20% ;
+ left: 10% ;
  right: 20%;
  background: powderblue;
  color: black;
@@ -38,7 +38,7 @@ image.css
 
 .content_img:hover div{
  width: 200px;
- padding: 8px 15px;
+ padding: 10px 15px;
  visibility: visible;
  opacity: 0.7; 
 }
