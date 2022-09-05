@@ -1,14 +1,7 @@
 image.css
 
-.containernew {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
-img {
-  margin: 5px;
-}
+/* CSS source code: Makitweb */
 
 /* Parent Container */.content_img{
  position: relative;
@@ -20,10 +13,10 @@ img {
 
 /* Child Text Container */.content_img div{
  position: absolute;
- bottom: 0;
- right: 0;
- background: black;
- color: white;
+ bottom: 40%;
+ top: 40%;
+ background: white;
+ color: black;
  margin-bottom: 5px;
  font-family: sans-serif;
  opacity: 0;
