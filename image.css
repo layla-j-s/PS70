@@ -5,7 +5,7 @@ image.css
 
 /* Parent Container */.content_img{
  position: relative;
- width: 1000px;
+ width: 200px;
  height: 200px;
  float: left;
  margin-right: 10px;
@@ -32,7 +32,7 @@ image.css
 }
 
 .content_img:hover div{
- width: 150px;
+ width: 200px;
  padding: 8px 15px;
  visibility: visible;
  opacity: 0.7; 
