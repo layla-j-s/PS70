@@ -3,6 +3,11 @@
 
 <title>PS70: Intro to Digital Fabrication </title>
 <head>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
@@ -128,15 +133,16 @@ Finally here is my circuit for the ultrasonic sensor. I didn’t use a breadboar
 
 <div class = "center">
   <img src="../06/ultracircuit.png" 
-     width ="500" height="300"/>
+     width ="400" height="500"/>
 </div>
 
 <b> Capacitive sensor </b>
+
 For the capacitive sensor aspect of this week I wanted to explore ways in which I could further my final project plans. As a recap for my final project I hope to make a float switch sensor to detect when water levels are too low from our water source to switch of the pump. I would also like to make a turbidity sensor to evaluate if the filter is effectively working (at least with physical filtration).
 
 <div class = "center">
   <img src="../06/capacitorcircuit.png" 
-     width ="500" height="300"/>
+     width ="400" height="500"/>
 </div>
 
 The demo in class shows using capacitors with a plastic cup and varying water levels to establish a relationship with capacitance and water level. Using the same code from [class](https://nathanmelenbrink.github.io/ps70/06_input/index.html), I started off with this, adding water in 0.5 ml increments and got the following relationship:
