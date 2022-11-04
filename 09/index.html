@@ -64,7 +64,7 @@ body {background-color: rgb(232, 245, 233);}
 </style>
 
 <body class="Avantgarde" font-weight=300px align="justify">
-<h1 font weight=700px>Week 9: Wireless Devices </h1>
+<h1 font weight=700px>Week 9: Radio, Wifi, Bluetooth </h1>
 
 <xmp style="display:none;">
 <br> 
@@ -79,7 +79,15 @@ Before working with the wireless component of the design we tested each componen
 
 <u> Input - Button component </u>
 
-To start out we tested one button on the ESP32 following this tutorial. This was important for us because we had a tough time understanding what each of the pins on the ESP32 did at first. At first this diagram really confused me and I thought that the GIOP number was different from the pin number, however after playing around with different pins it made more sense.
+To start out we tested one button on the ESP32 following [this](https://esp32io.com/tutorials/esp32-button) tutorial. This was important for us because we had a tough time understanding what each of the pins on the ESP32 did at first. 
+
+<div class = "center">
+  <img src="../09/pinout.png" 
+     width ="500" height="300"/>
+</div>
+
+
+At first this diagram really confused me and I thought that the GIOP number was different from the pin number, however after playing around with different pins it made more sense.
 
 Analyzing the tutorial we noticed it was more or less same initial code as with Arduino before so we felt pretty confident with making our design more ambitious. We decided it would be cool to have 3 buttons and require a specific sequence of those three buttons in order to read correct or incorrect (and eventually pair this with the unlocking of the solenoid). 
 
@@ -90,18 +98,19 @@ The circuit set up for the buttons is shown in the photo below
 
 <div class = "center">
   <img src="../09/buttons.jpeg" 
-     width ="500" height="300"/>
+     width ="300" height="500"/>
 </div>
 
 <u> Solenoid component </u>
 
-Originally we tried just connecting our Arduino to our power source to ensure it was working but this didn’t seem to work so we followed this tutorial Arduino tutorial for the set up, similar to the button testing process. This also wasn’t producing any results until we realized that the 5V the Arduino UNO supplies is not sufficient for the solenoid. By adding an additional 9V power source this issue was resolved.
+Originally we tried just connecting our Arduino to our power source to ensure it was working but this didn’t seem to work so we followed [this](https://core-electronics.com.au/guides/solenoid-control-with-arduino/#:~:text=A%20Solenoid%20is%20a%20coil,a%20number%20of%20interesting%20applications.) tutorial Arduino tutorial for the set up, similar to the button testing process. This also wasn’t producing any results until we realized that the 5V the Arduino UNO supplies is not sufficient for the solenoid. By adding an additional 9V power source this issue was resolved.
+
 When we switched to ESP 32 didn’t work with same system. I’m still not exactly sure why but when we switched out the field effect transistor with a bipolar junction resistor it worked! 
 
 In this case the circuit was much more complicated than the actual code, given that we were just performing Analog HIGH and LOW readings. The circuit is shown in the photo below:
 
 <div class = "center">
-  <img src="../06/solenoid.jpeg" 
+  <img src="../09/solenoid.jpeg" 
      width ="500" height="300"/>
 </div>
 
@@ -355,7 +364,7 @@ The only extra step required was to find the MAC address of the receiver ESP32. 
 Since we wanted a complete system we decided to laser cut a box using a dxf file we found from online (source here). We first cut in cardboard to make sure all the components would fit and then put it together with wood. We used a dxf template we found online and modified the dimensions based on our thickness of material. We then assembled the box and screwed the solenoid onto the lid, added a handle and divert for the solenoid and voila!
 
 <div class = "center">
-  <img src="../06/box.jpeg" 
+  <img src="../09/box.jpeg" 
      width ="500" height="300"/>
 </div>
 
