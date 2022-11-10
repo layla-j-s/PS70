@@ -78,17 +78,15 @@ While peristaltic pumps are traditionally used in medical devices I wanted to te
 
 <u> Making the peristaltic pump </u>
 
-I decided to 3D print the parts I would need for my peristaltic pump. I found this useful tutorial online that came with a fully parameterized systolic pump. This allowed me to change each parameter to fit my design specifications. I changed the motor fit specifications so that it would fit a Nema 17, and added the parameters of the tubing I was using. Below shows a screenshot of the parameters with highlighted columns showing what I changed.
+I decided to 3D print the parts I would need for my peristaltic pump. I found [this](https://www.thingiverse.com/thing:5409562) useful tutorial online that came with a fully parameterized systolic pump. This allowed me to change each parameter to fit my design specifications. I changed the motor fit specifications so that it would fit a Nema 17, and added the parameters of the tubing I was using. Below shows a screenshot of the parameters with highlighted columns showing what I changed.
 
 The assembly was fairly straightforward. The only difficulties I encountered were; 1) finding ways to attach the rotary bearings to the Rotor since I was missing the metal part listed in the tutorial. I ended up cutting small pieces of metal tubing and this was sufficient (although the diameter was slightly too small and caused the rotary bearings to move back and forth slightly). 2) I didn’t realize that NEMA-17s used M3 screws so I was attempting to fit generic screws which ended up making the design clunky. Luckily Nathan pointed this out to me so I was able to make the switch.
 
 Here are the final results:
 
-<div class = "center">
-  <img src="../10/initial_system.jpeg" 
-     width ="200" height="600"/>
-</div>
-
+<video width ="300" height="500" autoplay loop muted>
+  <source src="../10/initial_system.mp4" type="video/mp4" />
+</video>
 
 And Here is a breakdown of the different components in CAD
 
@@ -181,7 +179,7 @@ Initially I simply tried putting the tubing in two identical tanks, one filled w
 
 <div class = "center">
   <img src="../10/system.jpeg" 
-     width ="500" height="300"/>
+     width ="550" height="300"/>
 </div>
 
 The problem with this design is that water will naturally flow from the initial tank regardless of whether the pump is on if the first tank is filled higher than the exit nozzle. The best it can do to remove this effect is fill up the water so that it only just reaches the exit nozzle, but this also means that as soon as too much water is drawn the pump cannot overcome gravity to pump more out. This also makes it really difficult to take meaningful measurements.
@@ -191,7 +189,7 @@ The problem with this design is that water will naturally flow from the initial 
 </video>
 
 <video width ="500" height="300" autoplay loop muted>
-  <source src="../09/test2.mp4" type="video/mp4" />
+  <source src="../10/test2.mp4" type="video/mp4" />
 </video>
 
 
@@ -227,7 +225,7 @@ However when I tested my capacitor on its own at first I got really weird fluctu
 
  <div class = "center">
   <img src="../10/capacitor.png" 
-     width ="500" height="300"/>
+     width ="200" height="500"/>
 </div>
 
 
