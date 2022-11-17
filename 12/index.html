@@ -72,18 +72,27 @@ body {background-color: rgb(232, 245, 233);}
 
 <b> Overall project scope </b>
 
-INCLUDE SCHEMATIC 
+This week I focused on the two most difficult components of my project: 1) designing a filter system with removable compartments and 2) Completing the code for app bluetooth connectivity to my water system. 
 
 <u> Water filter </u>
 
-INCLUDE AMAZON PHOTO
+When thinking of feasible water filtration systems I could replicate, I came across this 5 stage filtration system on amazon. The system comprises of multiple layers, each of which will filter the water for different components based on the size and properties of the filling. The components are as follows: Activated carbon, ceramic balls, Resin, and two types of sand. I realized two potential improvements with this filtration system. 
+
 <div class = "center">
   <img src="../12/amazon.jpeg" 
-     width ="200" height="500"/>
+     width ="200" height="400"/>
 </div>
 
 
-INCLUDE CAD DRAWINGS
+Currently you can only buy packaged filter systems, however each commponent within this filter has a different shelf life. For example, activated carbon should be replaced every 6months- year while silica sand can last multiple years. In addition a lot of these materials can be sourced locally in rural communities, therefore communities may only need to buy certain parts such as the activated carbon.
+
+As a result my goal is to create a similar filter in which you can replace individual compartments allowing for a more cost-effective and sustainable system.
+
+
+<u> Fusion 360 </u>
+
+Here is my first prototype of the abovementioned system:
+
 <div class = "center">
   <img src="../12/fusion.png" 
      width ="600" height="400"/>
@@ -91,10 +100,20 @@ INCLUDE CAD DRAWINGS
 
 <iframe src="https://college418.autodesk360.com/shares/public/SH9285eQTcf875d3c539c97339a88419e3ed?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
 
+<u> Printing with PETG </u>
 
-prototype 1 photo
+I chose PETG because it is a known water-safe, water-proof filament that was available in the lab. It took some trial and error with the printer set up before I realized these were the optimal temperature conditions for the filament:
+
+Nozzle temp: 230 degrees
+Bed temp: 120 degrees.
+
+I also had to adjust the z component on the printer to help the PETG stick better.
+<u>Atempt 1 prototype 1:</u>
+
+This print attempt was a complete failure (but failure = learning :) ). I realized the filter was way too wide and the support circles were too thin in diameter causing the print to fail.
+
 <div class = "center">
-  <img src="../12/prototype.jpeg" 
+  <img src="../12/prototype1.jpeg" 
      width ="600" height="400"/>
 </div>
 
@@ -103,30 +122,56 @@ prototype 1 photo
      width ="600" height="400"/>
 </div>
 
-prototype 2 photos
+<u> Attempt 2 prototype 2 </u>
 
+This print was less of a failure than the first one but still a failure nevertheless. This time it was because the actual frame was too thin so it snapped immediately ( in two places) when I tried to remove the support from the print
 <div class = "center">
   <img src="../12/ptototype2.jpeg" 
      width ="600" height="400"/>
 </div>
 
+<u> Attempt 3 prototype 3 </u>
+
+This print was somewhat of a success! I need to change a few parameters so it is a more smooth fit but overall I a happy with the progress. 
+
+<div class = "center">
+  <img src="../12/ptototype3.1.jpeg" 
+     width ="400" height="600"/>
+</div>
+
+
+<div class = "center">
+  <img src="../12/ptototype3.2.jpeg" 
+     width ="400" height="600"/>
+</div>
+
+I also added a base to the drawer with holes in it. At first I thought I wanted to add mesh to the bottom but I realized that some of the compartments contain components that have very small diameters. I am currently looking for filter alternatives now. The easiest solution would be a coffee filter but these need to be replaced regularly so that would kind of defeat the purpose.
+
+My one concern is that water will leak out the sides of this filter if there are any gaps. I will test this as soon as prototype 3 has all of the components.
 
 
 <u>Bluetooth App feature</u>
 
+The second challenge I tackled this week was attempting to code the app and ESP32 for my bluetooth information. The goal behind this was to have a fully functioning app that would receive water level data from a sensor in the water system and also have two buttons to turn off and on the pump. I thought about programming it so that the pump would automatically shut off after a certain amount but I realized since this was a small scale water system it would make more sense to prioritize user autonomy so the user could turn off the pump whenever they didn't want to use it regardless of water level.
 
-WEBSITE CODE
+I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed this super helpful tutorial and imported the demo apo code. Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
+
+
 <div class = "center">
-  <img src="../12/scratch.jpeg" 
+  <img src="../12/scratch.jpg" 
      width ="600" height="400"/>
 </div>
 
-WEBSITE ERROR SCREENSHOT
+However, when I went to test this on my iphone I kept getting this error: 
+
 <div class = "center">
   <img src="../12/app.jpeg" 
      width ="300" height="600"/>
 </div>
-Arduino code - check that comments are updated
+
+When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. My family has an old android phone that I will try and revive over thanksgiving, but in the mean time I will come up with a back up plan (see further below):
+
+Here is the Arduino code linked to the app software. It took a while for me to understand all the variables and class structure, but PK helped a lot!: 
 
 <pre><code>
 
@@ -271,18 +316,25 @@ void loop() {
 
 </code></pre>
 
+The one win from this project is that I got my phone to connect to the ESP32:
+
+<div class = "center">
+  <img src="../12/bluetooth.jpg" 
+     width ="600" height="400"/>
+</div>
+
 
 
 <u>Backup plan </u>
 
-ESP 32 ONE WAY CONNECTION
-Button and screen one end (mimicking app)
-Pump and water level sensor on other 
+As a backup plan I created the code for communication between two ESP32Ns. Essentially one ESP32N would be connected to a button and a screen and perform the same functions that the app would. Worst case scenario I can turn this into a fully fuctioning remote.
 
-Circuit drawing 
+Here is a schematic:
+
+This was relatively easy to execute since I had worked with ESP-NOW with Andrei in week 9. I had to update the code since now both ESP32Ns were the senders and receivers but I followed this tutorial to help me with that.
 
 
-Here is the code 
+Here is the code :
 
 
 Code 1 - for button and screen
@@ -461,6 +513,7 @@ void loop() {
 
 Code 2 - for water system
 Still going to try to get app to work - ideal
+
 
 <pre><code>
 
@@ -648,6 +701,14 @@ void loop() {
 }
 
 </code></pre>
+
+
+Next steps for project:
+1. Finish 3d printing filter parts 
+2. Testing app on Android phone
+3. Testing water sensor (Soil moisture sensor)
+4. Turning motor to pump (worst case use pump available in lab)
+5. Put system together
 
 
 </xmp>
