@@ -119,58 +119,151 @@
           <span style="text-decoration: underline !important;"> Code</span>
           <br>
           <br>Here is my code based on the previous discussion: <br>
-          <br>&lt;pre&gt;&lt;code&gt; <br>
-          <br>#include &lt;Adafruit_GFX.h&gt;    // Core graphics library <br>#include &lt;Adafruit_ST7735.h&gt; // Hardware-specific library for ST7735 <br>#include &lt;Adafruit_ST7789.h&gt; // Hardware-specific library for ST7789 <br>
-          <br>//#include &lt;TFT.h&gt;  // Arduino LCD library <br>#include &lt;SPI.h&gt; <br>
-          <br>
-          <br>
-          <br>// create an instance of the library <br>#define TFT_CS        10 <br>#define TFT_RST        9 <br>#define TFT_DC         8 <br>//TFT TFTscreen = TFT(TFT_CS, TFT_DC, TFT_RST); <br>Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST); <br>
-          <br>// char array to print to the screen <br>char sensorPrintout[4]; <br>
-          <br>
-          <br>
-          <br>// constants won't change. They're used here to set pin numbers: <br>const int A1A = 3;  // define pin 3 for A-1A (PWM Speed) <br>const int A1B = 2; <br>// Sensor pins <br>const int sensorPower = 7; <br>const int sensorPin = A5; <br>
-          <br>
-          <br>// Value for storing water level <br>int sensorState = 0; <br>int val = 0; <br>float p = 3.1415926; <br>
-          <br>
-          <br>unsigned long currentMillis; <br>unsigned long previousMillis=0; <br>unsigned long interval = 1000 ; <br>
-          <br>
-          <br>//This is a function used to get the reading <br>int readSensor(unsigned long currentMillis, unsigned long previousMillis) { <br> digitalWrite(sensorPower, HIGH);  // Turn the sensor ON <br> (currentMillis - previousMillis &gt;= interval);          // wait 1000 milliseconds&amp;&amp; (currentMillis - previousMillis1 &gt;= interval) <br> val = analogRead(sensorPin);    // Read the analog value form sensor <br> digitalWrite(sensorPower, LOW);   // Turn the sensor OFF <br> return val;             // send current reading <br>} <br>
-          <br>
-          <br>void setup() { <br> Serial.begin(9600); <br> pinMode(A1A, OUTPUT);     // specify these pins as outputs <br> pinMode(A1B,OUTPUT); <br> digitalWrite(A1B, LOW); <br> analogWrite(A1A, 0);   // start with the motors off <br> pinMode(sensorPin, INPUT); <br>
-          <br>// Set D7 as an OUTPUT <br> pinMode(sensorPower, OUTPUT); <br> // Set to LOW so no power flows through the sensor <br> digitalWrite(sensorPower, LOW); <br>
-          <br>Serial.println(val); <br> tft.init(135, 240);           // Init ST7789 240x135 <br>tft.fillScreen(ST77XX_BLACK); <br>
-          <br>} <br>
-          <br>//Screen <br>// Put this line at the beginning of every sketch that uses the GLCD: <br> //TFTscreen.begin(); <br>
-          <br>
-          <br>
-          <br>void testdrawtext(char *text, uint16_t color) { <br> tft.setCursor(0, 0); <br> tft.setTextColor(color); <br> tft.setTextWrap(true); <br> tft.print(text); <br>} <br>
-          <br>
-          <br>//} <br>
-          <br>
-          <br>//try running with delays tomorrow <br>//remove delays <br>// figure out error with measurement <br>// measure on oscilloscope <span style="font-weight: 700; text-decoration: underline !important;">
-            <br>
-            <br>// <br>
-            <br>void loop(){ <br>
-            <br> currentMillis = millis(); <br>
-            <br> //get the reading from the function below and print it <br> int level = readSensor(currentMillis,previousMillis); <br>
-            <br> Serial.print("Water level: "); <br> Serial.println(level); <br>
-            <br>
-            <br>
-            <br>
-            <br> if ((level &lt; 100) &amp;&amp; (currentMillis - previousMillis &gt;= interval)) <br> { <br>
-            <br> analogWrite(A1A, 0);   // Speed to match photosensor <br>
-            <br> testdrawtext("Warning: Low water level ", ST77XX_WHITE); <br> (currentMillis - previousMillis &gt;= interval); <br> previousMillis = currentMillis; <br>//    tft.println("WARNING: LOW WATER LEVEL"); <br> // set the font color <br> //    tft.setTextColor(ST7735_RED); <br>
-            <br> }else if( (level &gt; 100) &amp;&amp; (currentMillis - previousMillis &gt;= interval)){ <br> analogWrite(A1A, level);   // Speed to match photosensor <br> // Read the value of the sensor on A5 <br> // Read the value of the sensor on A5 <br> String sensorVal = String((level - 52.5)/69.1); <br>
-            <br> const char* ah = sensorVal.c_str(); <br>
-            <br>
-            <br> Serial.println(ah); <br> tft.fillScreen(ST77XX_BLACK); <br>
-            <br> testdrawtext(ah, ST77XX_WHITE); <br> (currentMillis - previousMillis &gt;= interval); <br> previousMillis = currentMillis; <br>
-            <br>
-            <br>
-            <br>} <br>} <br>
-            <br>//} <br>
-            <br>&lt;/code&gt;&lt;/pre&gt;&nbsp;<br>
-            <br>
+          <pre><code>
+
+#include <Adafruit_GFX.h>    // Core graphics library
+#include <Adafruit_ST7735.h> // Hardware-specific library for ST7735
+#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
+
+//#include <TFT.h>  // Arduino LCD library
+#include <SPI.h>
+
+
+
+// create an instance of the library
+#define TFT_CS        10
+#define TFT_RST        9 
+#define TFT_DC         8
+//TFT TFTscreen = TFT(TFT_CS, TFT_DC, TFT_RST);
+Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+// char array to print to the screen
+char sensorPrintout[4];
+
+
+
+// constants won't change. They're used here to set pin numbers:   
+const int A1A = 3;  // define pin 3 for A-1A (PWM Speed)
+const int A1B = 2;
+// Sensor pins
+const int sensorPower = 7;
+const int sensorPin = A5;
+
+
+// Value for storing water level
+int sensorState = 0;
+int val = 0;
+float p = 3.1415926;
+
+
+unsigned long currentMillis;
+unsigned long previousMillis=0;
+unsigned long interval = 1000 ;
+
+
+//This is a function used to get the reading
+int readSensor(unsigned long currentMillis, unsigned long previousMillis) {
+  digitalWrite(sensorPower, HIGH);  // Turn the sensor ON
+  (currentMillis - previousMillis >= interval);          // wait 1000 milliseconds&& (currentMillis - previousMillis1 >= interval)
+  val = analogRead(sensorPin);    // Read the analog value form sensor
+  digitalWrite(sensorPower, LOW);   // Turn the sensor OFF
+  return val;             // send current reading
+}
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(A1A, OUTPUT);     // specify these pins as outputs
+  pinMode(A1B,OUTPUT);
+  digitalWrite(A1B, LOW);
+  analogWrite(A1A, 0);   // start with the motors off 
+  pinMode(sensorPin, INPUT);
+
+// Set D7 as an OUTPUT
+  pinMode(sensorPower, OUTPUT);
+  // Set to LOW so no power flows through the sensor
+  digitalWrite(sensorPower, LOW);
+
+Serial.println(val);
+ tft.init(135, 240);           // Init ST7789 240x135
+tft.fillScreen(ST77XX_BLACK);
+
+}
+
+//Screen
+// Put this line at the beginning of every sketch that uses the GLCD:
+  //TFTscreen.begin();
+
+
+
+void testdrawtext(char *text, uint16_t color) {
+  tft.setCursor(0, 0);
+  tft.setTextColor(color);
+  tft.setTextWrap(true);
+  tft.print(text);
+}
+ 
+
+//}
+
+
+//try running with delays tomorrow
+//remove delays
+// figure out error with measurement 
+// measure on oscilloscope 
+
+//
+
+void loop(){ 
+
+  currentMillis = millis();
+  
+ //get the reading from the function below and print it
+  int level = readSensor(currentMillis,previousMillis);
+  
+  Serial.print("Water level: ");
+  Serial.println(level);
+  
+ 
+  
+
+  if ((level < 100) && (currentMillis - previousMillis >= interval))
+  {
+    
+    analogWrite(A1A, 0);   // Speed to match photosensor
+   
+     testdrawtext("Warning: Low water level ", ST77XX_WHITE);
+  (currentMillis - previousMillis >= interval);
+  previousMillis = currentMillis;
+//    tft.println("WARNING: LOW WATER LEVEL");
+    // set the font color
+ //    tft.setTextColor(ST7735_RED);
+     
+  }else if( (level > 100) && (currentMillis - previousMillis >= interval)){
+    analogWrite(A1A, level);   // Speed to match photosensor
+    // Read the value of the sensor on A5
+    // Read the value of the sensor on A5
+  String sensorVal = String((level - 52.5)/69.1);
+
+   const char* ah = sensorVal.c_str();
+
+
+  Serial.println(ah);
+  tft.fillScreen(ST77XX_BLACK);
+
+    testdrawtext(ah, ST77XX_WHITE);
+   (currentMillis - previousMillis >= interval);
+   previousMillis = currentMillis;
+
+
+  
+}
+}
+
+//}
+
+</code></pre>
+
             <span style="font-weight: 700;"> Final Product</span>
             <br>
             <br>
