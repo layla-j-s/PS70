@@ -1,0 +1,131 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 8888px;
+}
+
+.u-section-1 .u-text-1 {
+  background-image: none;
+  text-transform: uppercase;
+  margin: 46px 0 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1.125rem;
+  margin: 11px 0 0;
+}
+
+.u-section-1 .u-image-1 {
+  width: 570px;
+  height: 342px;
+  margin: -8189px auto 0 251px;
+}
+
+.u-section-1 .u-video-1 {
+  width: 733px;
+  height: 494px;
+  margin: 1018px auto 0 -151px;
+}
+
+.u-section-1 .u-video-2 {
+  width: 623px;
+  height: 351px;
+  margin: -446px 81px 0 auto;
+}
+
+.u-section-1 .u-video-3 {
+  width: 1079px;
+  height: 685px;
+  margin: 4452px auto 0;
+}
+
+.u-section-1 .u-image-2 {
+  width: 256px;
+  height: 282px;
+  margin: 480px auto 60px 24px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 8800px;
+  }
+
+  .u-section-1 .u-video-2 {
+    height: 350px;
+  }
+
+  .u-section-1 .u-video-3 {
+    width: 940px;
+    height: 597px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 8660px;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-left: 150px;
+  }
+
+  .u-section-1 .u-video-3 {
+    width: 720px;
+    height: 457px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 8350px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 540px;
+    height: 324px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-video-1 {
+    width: 540px;
+    height: 364px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-video-2 {
+    width: 540px;
+    height: 303px;
+    margin-top: -316px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-video-3 {
+    width: 540px;
+    height: 343px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 7856px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 340px;
+    height: 204px;
+  }
+
+  .u-section-1 .u-video-1 {
+    width: 340px;
+    height: 229px;
+  }
+
+  .u-section-1 .u-video-2 {
+    width: 340px;
+    height: 191px;
+    margin-top: -181px;
+  }
+
+  .u-section-1 .u-video-3 {
+    width: 340px;
+    height: 216px;
+  }
+}
