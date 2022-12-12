@@ -13,6 +13,10 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Slab:100,200,300,400,500,600,700,800,900">
     
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script> 
     
     
     <script type="application/ld+json">{
@@ -72,27 +76,66 @@
           <br>
           <br>I started off by defining my constants as such:This time I needed 4 constants because I was including my L9110 A1A, A1B and the two pins for my button and sensor:<br>
           <br>This time I needed 4 constants because I was including my L9110 A1A, A1B and the two pins for my button and sensor: <br>
-          <br>&lt;pre&gt;&lt;code&gt; <br>// constants won't change. They're used here to set pin numbers: <br>const int buttonPin = 8;     // the number of the pushbutton pin <br>const int sensorPin =  A0;      // the number of the sensor pin <br>const int A1A = 3;  // define pin 3 for A-1A (PWM Speed) <br>const int A1B = 4;  // define pin 4 for A-1B (direction) <br>
-          <br>&lt;/code&gt;&lt;/pre&gt; <br>
-          <br>I then created an initial point for my variables that will change: <br>
-          <br>&lt;pre&gt;&lt;code&gt; <br>// variables will change: <br>int buttonState = 0; <br>int sensorfixed = 0; <br>int sensorState = 0;// variable for reading the pushbutton status <br>&lt;/pre&gt; &lt;/code&gt; <br>
-          <br>
-          <br>
-          <br>I had to create two variables for sensor state, because I had to remap the values the sensor was picking up, and will go into more detail on this in the next section. <br>
+         <pre><code>
+
+          // constants won't change. They're used here to set pin numbers: 
+
+          const int buttonPin = 8;     // the number of the pushbutton pin 
+          const int sensorPin =  A0;      // the number of the sensor pin 
+          const int A1A = 3;  // define pin 3 for A-1A (PWM Speed) 
+          const int A1B = 4;  // define pin 4 for A-1B (direction) 
+
+        </code></pre>
+
+        I then created an initial point for my variables that will change: 
+          
+          <pre><code>
+          // variables will change: 
+          int buttonState = 0; <br>int sensorfixed = 0; 
+          int sensorState = 0;// variable for reading the pushbutton status 
+
+        </code></pre>
+
+          I had to create two variables for sensor state, because I had to remap the values the sensor was picking up, and will go into more detail on this in the next section. <br>
           <br>Below is my void setup, taking what we learnt from class that direction should be digital while speed should be analog form: <br>
-          <br>&lt;pre&gt;&lt;code&gt; <br>void setup() { <br> Serial.begin(9600); <br> pinMode(A1A, OUTPUT);     // specify these pins as outputs <br> pinMode(A1B, OUTPUT); <br> analogWrite(A1A, 0);   // start with the motors off <br> digitalWrite(A1B, LOW); <br> // initialize the sensor pin as an input: <br> pinMode(sensorPin, INPUT); <br> // initialize the pushbutton pin as an input: <br> pinMode(buttonPin, INPUT); <br>} <br>&lt;/code&gt;&lt;/pre&gt; <br>
+
+
+          <pre><code>; 
+            void setup() { 
+            Serial.begin(9600); 
+            pinMode(A1A, OUTPUT);     // specify these pins as outputs 
+            pinMode(A1B, OUTPUT); 
+            analogWrite(A1A, 0);   // start with the motors off 
+            digitalWrite(A1B, LOW); 
+            // initialize the sensor pin as an input: <br> pinMode(sensorPin, INPUT); 
+            // initialize the pushbutton pin as an input: <br> pinMode(buttonPin, INPUT); 
+           </code></pre>
+
           <br>
           <span style="text-decoration: underline !important;">Troubleshooting </span>
           <br>
-          <br>At first, my button was not working. I would hold it down and instead of changing direction it would simply stop the motor. I realized that I forgot what we learnt in class that I had forgot to implement what we learnt in class and needed to invert the sensor state for one of my functions as shown below: <br>
-          <br> &lt;pre&gt;&lt;code&gt;analogWrite(A1A, 255-sensorState) &lt;/code&gt;&lt;/pre&gt; <br>
-          <br>Success! <br>
-          <br>The phototransistor was really tricky since the motor was very sensitive to any power supplied by the Arduino. My first error was that I connected it in the wrong direction thinking that the transistor acts the same as a diode (when in reality it should be connected in the opposite direction). 55Kassia showed me about the “Serial.print” function to view the values I was getting from the phototransistor.  I realized that the max values were in the 500 range, with the highest observable max at 510. However the motor max is only at 255, so I thought this was also preventing the motor from detecting the differences in light if most values were already above 255. I used the map function and created a new variable “sensor” fixed. As shown below: <br>
-          <br>&lt;pre&gt;&lt;code&gt; <br>sensorState = analogRead(sensorPin)/2; <br>buttonState = digitalRead(buttonPin); <br>Serial.println(sensorState); <br>
-          <br>sensorfixed = map(sensorState, 1, 510, 0, 255); <br> if (buttonState==HIGH){ <br> digitalWrite(A1B, HIGH); <br> analogWrite(A1A, 255-sensorState);   // Speed to match photosensor <br>
-          <br> }else{ <br> digitalWrite(A1B, LOW); <br> analogWrite(A1A, sensorState);   // Speed to match photosensor <br>&lt;/code&gt; &lt;/pre&gt; <br>
-          <br>
-          <br>Success! <br>
+          <br>At first, my button was not working. I would hold it down and instead of changing direction it would simply stop the motor. I realized that I forgot what we learnt in class that I had forgot to implement what we learnt in class and needed to invert the sensor state for one of my functions as shown below:  
+          <pre><code>
+analogWrite(A1A, 255-sensorState) 
+        </code></pre>
+
+
+         The phototransistor was really tricky since the motor was very sensitive to any power supplied by the Arduino. My first error was that I connected it in the wrong direction thinking that the transistor acts the same as a diode (when in reality it should be connected in the opposite direction). 55Kassia showed me about the “Serial.print” function to view the values I was getting from the phototransistor.  I realized that the max values were in the 500 range, with the highest observable max at 510. However the motor max is only at 255, so I thought this was also preventing the motor from detecting the differences in light if most values were already above 255. I used the map function and created a new variable “sensor” fixed. As shown below: 
+
+          <pre><code> 
+          sensorState = analogRead(sensorPin)/2; 
+          buttonState = digitalRead(buttonPin); 
+          Serial.println(sensorState); 
+          sensorfixed = map(sensorState, 1, 510, 0, 255); 
+          if (buttonState==HIGH){ 
+          digitalWrite(A1B, HIGH); 
+          analogWrite(A1A, 255-sensorState);   // Speed to match photosensor 
+          }else{ 
+          digitalWrite(A1B, LOW); 
+          analogWrite(A1A, sensorState);   // Speed to match photosensor 
+          </code></pre>
+
+          
           <br>Finally it should be notes that at first my phototransistor code was included outside of my if, else statement but I realized that it needed to be embedded within the if else statement because of the inverted speeds that I had mentioned above. This exercise also helped cement my understanding of analog and digital and which to use for each function. Originally, I had used digital mode for everything and this was also interfering with my pump. <br>
           <br>Here is my circuit from the breadboard: <br>
           <br>
@@ -108,23 +151,6 @@
           <br>
           <br>
           <span style="text-decoration: underline !important;">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <br>
             <br>
             <br>
@@ -165,9 +191,12 @@
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
-                  <div class="u-align-left u-expanded u-video">
-                    <div class="embed-responsive embed-responsive-2">
-                      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item" src="https://www.youtube.com/embed/L-hm3S1aSnI?mute=0&amp;showinfo=0&amp;controls=0&amp;start=0" frameborder="0" allowfullscreen=""></iframe>
+                  <div class="embed-responsive">
+                      <video class="embed-responsive-item">
+                        <source src="files/vid1.mp4" type="video/mp4">
+                        <p>Your browser does not support HTML5 video.</p>
+                      </video>
+                      <button class="u-video-poster"></button>
                     </div>
                   </div>
                 </div>
