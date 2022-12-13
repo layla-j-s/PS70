@@ -6,6 +6,9 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
 
+<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
@@ -18,6 +21,42 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="image.css">
 
+<style>
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color: rgb(212, 234, 246);
+        }
+
+        </style>
+
+<style>
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.body {background-color: rgb(249, 248, 255); font-family: Roboto Slab; font-weight: 300px; align:justify;}
+h1 {font-family:Roboto Condensed; font weight:1000px; color:rgb(212, 234, 246);}
+.h2 {font-family:Roboto Condensed; font weight:800px; color:rgb(0, 0, 0);}
+</style>
 
 <!--/*Source: Navbar Bootstrsap -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -58,664 +97,128 @@
   </div>
 </nav>
 
+</head>
 
 <body>
 
-<style>
-body {background-color: rgb(232, 245, 233);}
-</style>
 
-<body class="Avantgarde" font-weight=300px align="justify">
-<h1 font weight=700px>Week 12: Project Prep (MVP)</h1>
+<h1>WEEK 12: MVP PROJECT AND DESIGN PROCESS </h1>
 
 <xmp style="display:none;">
 <br> 
 
+<b> Overall design – Break it into skill based components </b>
 
-<b> Overall project scope </b>
-
-This week I focused on the two most difficult components of my project: 1) designing a filter system with removable compartments and 2) Completing the code for app bluetooth connectivity to my water system. 
-
-<u> Water filter </u>
-
-When thinking of feasible water filtration systems I could replicate, I came across this 5 stage filtration system on amazon. The system comprises of multiple layers, each of which will filter the water for different components based on the size and properties of the filling. The components are as follows: Activated carbon, ceramic balls, Resin, and two types of sand. I realized two potential improvements with this filtration system. 
-
-<div class = "center">
-  <img src="../12/amazon.jpeg" 
-     width ="200" height="400"/>
-</div>
+The goal for my final project was to create a design for a small scale water distribution system while keeping it as modular as possible. This modularity would allow for increased user agency in the maintenance and monitoring of the water system. For example, by breaking a pump down to it’s simplest components, users would only have to check a few components if there was ever a malfunction. Additionally, modularity is in line with sustainability. This is shown clearly with respect to bio filters, which often involve many different components that can be sourced locally but are always packaged as one filter (i.e. impossible to replace one part alone without replacing the whole filter). While this idea of modularity remained present and the underlying goal throughout the design process, the ideation from start to finish changed drastically. Below is a schematic of my initial goal versus final. This was compiled with an application that communicates with the water system via bluetooth and allows the user to monitor water levels as well as turn off and on the pump accordingly
 
 
-Currently you can only buy packaged filter systems, however each commponent within this filter has a different shelf life. For example, activated carbon should be replaced every 6months- year while silica sand can last multiple years. In addition a lot of these materials can be sourced locally in rural communities, therefore communities may only need to buy certain parts such as the activated carbon.
+For learning purposes, I have divided my final project development page based on learning outcomes and specific skills acquired throughout the class. For a summary of the final project, video demo, as well as a brief explanation of each component, please click here (INSERT LINK).
 
-As a result my goal is to create a similar filter in which you can replace individual compartments allowing for a more cost-effective and sustainable system.
+<u> 3D printing and prototyping process</u>
 
+3D printing was an essential part of the prototyping process for both the fixtures as well as the design of the filter itself. As explained before, I wanted to design a filter with removable drawer-like compartments that would contain individual components typically packaged within a filter. This was simple in theory, however, in practice proved much more challenging; I needed something that would be 1) water proof 2) compartments that are easy to remove for anyone (i.e not overly complex mechanisms) and 3) Compartments that were compact so as to not allow for water leakage. Points 2) and 3) proved especially challenging as every time I thought of a design that fulfilled one criteria it often went against the other. In order to try and satisfy criteria one, I decided to use PETG filament for my 3D prints, which, according to multiple online sources, does a pretty good job at being water safe and water proof.
 
-<u> Fusion 360 </u>
+Little things with the 3D printing proved difficult as well. It took me a while to realize that my prints kept failing because the optimal PETG settings are fairly different from those of PLA. Once I changed the setting to 230 nozzle temp and around 85 for bed temp it worked much better! In addition, since I wanted my compartments to take a “press-fit” form to aid with criteria 3), it was important to get the dimensions as close as possible. This was tough because I had never realized before that there is a “kerf” equivalent in 3D printing, meaning that we need to account for the space taken up by filament and perhaps space that has been shrunk from heating. I’m still not exactly sure what a good number for this is but I settled on 0.5 mm as a conservative estimate. 
+Below is my first 3d print and final 3d print, with each component laid out separately
 
-Here is my first prototype of the abovementioned system:
+The final STL file can be found on the [Final Project Page](../FinalProject/index.html)
 
-<div class = "center">
-  <img src="../12/fusion.png" 
-     width ="600" height="400"/>
-</div>
+<u>Attaching Mesh to filter </u>
 
-<iframe src="https://college418.autodesk360.com/shares/public/SH9285eQTcf875d3c539c97339a88419e3ed?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
+Originally, I had planned to directly incorporate mesh fitting into my design, however after discussing with Nathan I realized that the 3D printer was not optimized for this sort of design (shown below). I decided to use (FIND GRATING SIZE) metal mesh filter. This also went along nicely with my underlying modularity goals as it would be easy and cheap to replace. I decided, therefore, that the best way to attach this metal meshes would be a press fit methodology with an additional printed ring to squeeze on top of the mesh. After running a few test prints and trial and error, I managed to get the right weighting, diameter and thickness to hold the mesh in place.
 
-<u> Printing with PETG </u>
+SHOW PHOTO
 
-I chose PETG because it is a known water-safe, water-proof filament that was available in the lab. It took some trial and error with the printer set up before I realized these were the optimal temperature conditions for the filament:
+<u> Filter components </u>
 
-Nozzle temp: 230 degrees
-Bed temp: 120 degrees.
+Knowing that the actual components were something that I could not reproduce within the lab, I decided to order this 5-stage filter on amazon comprised of the following components: activated carbon, resin, silica sand, infrared ceramic balls, mineral sand, and mineral stones. I decided to follow a similar ratio as the one presented in the available filter as my goal was not to change the make up of filters (as I am no expert in this area) but simply focus on their modularity. While I did not get around to this I would eventually like to test my filter out with a simple water quality testing kit to understand if my filter is actually sufficient in removing harmful bacteria, without any fancy membranes or osmosis procedure as offered by many filters nowadays. Additionally, it would be interesting to test the effectiveness of locally sourced materials vs manufactured materials with respect to components such as sand or gravel.
+ 
+<u> Filter Coating </u>
+After putting together my compartmentalized filter and testing it, I realized that it was still prone to leaks and that the PETG filament was not completely waterproof. This was pretty disappointing as I realized this relatively late into the design process where it was too late to explore other proclaimed waterproof filaments. I decided therefore to try coating it with different materials. The first material I tried was acrylic (FIND NAME OF COATING) , which suggested given that he uses it for coating electrical materials and protecting them against moisture. This worked okay as it reduced leaks but there were still a significant amount. I next tried (FIND NAME), another type of coating that uses silicone instead. While I wasn’t exactly sure of all the individual components and uses of this coating material, a quick google search showed that silicone is generally considered water safe. This test run yielded better results, and had slightly less leaking. Overall, I would not say that the filter is 100% water proof. In the future I would need to explore the effect of thickness of the coating, as well as look into other alternatives that are available. 
 
-I also had to adjust the z component on the printer to help the PETG stick better.
-<u>Atempt 1 prototype 1:</u>
+<u> Water + Cup design </u>
 
-This print attempt was a complete failure (but failure = learning :) ). I realized the filter was way too wide and the support circles were too thin in diameter causing the print to fail.
+Given that this water system is meant to be for small scale use, I decided to build a start to end flow of water. This meant that I wanted to show the process from the tank all the way to the cup. Because of this, I thought that by designing the filter so that it would act as an add-on component to a cup stand would help make the design more human. Below are my CAD drawings for the design and a photo of the components together.
 
-<div class = "center">
-  <img src="../12/prototype1.jpeg" 
-     width ="600" height="400"/>
-</div>
+<u> Input electronic devices </u>
 
-<div class = "center">
-  <img src="../12/ptototype1.2.jpeg" 
-     width ="600" height="400"/>
-</div>
+Originally I had hoped to use capacitive sensors due to their low cost and easy installation (you only really need to strips of copper and some wire), however I soon found that the seemingly user friendly aspect of these capacitive sensors could not outweigh the potential loss in accuracy in this case. As much as I tried to play around with the capacitors to increase accuracy, I could not decrease the immense variability. At times the readings would jump from 90 ml to 300 ml. The original code I had for this type of sensor is shown below:
 
-<u> Attempt 2 prototype 2 </u>
+GET FROM MVP
 
-This print was less of a failure than the first one but still a failure nevertheless. This time it was because the actual frame was too thin so it snapped immediately ( in two places) when I tried to remove the support from the print
-<div class = "center">
-  <img src="../12/ptototype2.jpeg" 
-     width ="600" height="400"/>
-</div>
-
-<u> Attempt 3 prototype 3 </u>
-
-This print was somewhat of a success! I need to change a few parameters so it is a more smooth fit but overall I a happy with the progress. 
-
-<div class = "center">
-  <img src="../12/ptototype3.1.jpeg" 
-     width ="400" height="600"/>
-</div>
+I decided, therefore, to switch to a soil moisture premade sensor. While this automatically increased the accuracy and reduced variability of readings, there was a large associated downside. Apart from decreasing modularity and accessibility factors, I was greatly limited by the length of the soil moisture sensor. It was only about 10 cm long but my prefab tank (aka bucket I found in the PS 70 lab) was over 25 cm. With the capacitive sensors I could customize just about everything including the length and therefore recorded water level. With this limitation in mind I decided to evolve my original design such that, instead of a direct water level reading the app would output a generic level reading: “High water level”, “medium water level”, or “Low water level” with an additional warning sign for the low level water to turn off the pump immediately.
+This is a great example of a limitation that allowed me to remember the core driving factors of my final project. In this case I believe this limitation helped allow me to remember my project’s focus and recenter.  This adjusted feature is easier for the user to understand (rather than arbitrary water level numbers).
 
 
-<div class = "center">
-  <img src="../12/ptototype3.2.jpeg" 
-     width ="400" height="600"/>
-</div>
 
-I also added a base to the drawer with holes in it. At first I thought I wanted to add mesh to the bottom but I realized that some of the compartments contain components that have very small diameters. I am currently looking for filter alternatives now. The easiest solution would be a coffee filter but these need to be replaced regularly so that would kind of defeat the purpose.
-
-My one concern is that water will leak out the sides of this filter if there are any gaps. I will test this as soon as prototype 3 has all of the components.
-
-
-<u>Bluetooth App feature</u>
+<u> Arduino code: </u>
 
 The second challenge I tackled this week was attempting to code the app and ESP32 for my bluetooth information. The goal behind this was to have a fully functioning app that would receive water level data from a sensor in the water system and also have two buttons to turn off and on the pump. I thought about programming it so that the pump would automatically shut off after a certain amount but I realized since this was a small scale water system it would make more sense to prioritize user autonomy so the user could turn off the pump whenever they didn't want to use it regardless of water level.
 
+I started first with the Arduino code as I wanted to make sure the Bluetooth component was all settled before moving on to the ap development. I decided to follow THIS Bluetooth Low Energy (BLE) tutorial. Ultimately, BLE seemed like the more appropriate option given that I would not be sending large amount of data, and want to focus on more energy efficient and cost-effective designs when applicable. 
+
+The most confusing part for me was understanding the difference between a Server and Client. I tried to equate it to the sender and receiver from ESP radio which ended up confusing me more since in my case, the app sends a signal to turn off and, on a pump, but the esp32 sends data regarding the water level so there is a two-way transfer of data. After doing more research, I realized that Server and Client only relate to the actual Bluetooth connect. The server advertises its existence while the client scans for devices and finds it. I therefore decided to make my phone the client and my esp32 the server. 
+
+Below is the code for the esp32.
+
+
+I first tested the esp32 with my phone using nRF connect as shown below. My phone was able to discover the esp32 easily, however when I went to the read write function and went to send an “A” which corresponds to the Boolean “True” in my code (thereby turning the pump on), the esp32 received no value. I figured this was an issue with my phone and tried by trial and error to torubleshoot by sending different values, changing it to read and write, and trying to overwrite the esp32 so the value sent regardless if it was accepted. I eventually looked more closely at my code and realized that the error was how I initialized my variable that would be accepting this value. It was listed as an integer rather than a Boolean. 4 hours of debugging later and I had solved it! This exercise helped my understanding of code a lot, especially in working with PK to understand the different forms in which information can be sent (character, string, etc.).
+
+<u> APP Development </u>
+
 I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed this super helpful tutorial and imported the demo apo code. Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
+However, when I went to test this on my Iphone I kept getting this error:
 
+When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. My family has an old android phone that I will try and revive over thanksgiving, but in the mean time I will come up with a back up plan 
 
-<div class = "center">
-  <img src="../12/scratch.jpg" 
-     width ="800" height="600"/>
-</div>
+After acquiring an old android phone from a friend I was able to test out the Bluetooth feature on the phone. I would connect the phone to the esp32 through NRF connect as shown above and then open the app on my phone using the AI companion feature which essentially allows you the project the app on your phone through WIFI before it is published in the app store (which can be a very lengthy process). While each of these components worked individually, I found that every time I got the app companion to load it would disconnect from Bluetooth. I spent hours trying to debug both my Arduino code and app coding before I realized what the error was: in order to use an app that connect to the esp32 using Bluetooth, you must include code such that you can connect to the Bluetooth through the app. For some reason the app did not recognize third party connections.
 
-However, when I went to test this on my iphone I kept getting this error: 
+After adding in code to scan, stop scanning, connect and disconnect from a device (following THIS tutorial), I had my first successful connection with the app and ESP32!!
+SHOW video
 
-<div class = "center">
-  <img src="../12/app.jpeg" 
-     width ="200" height="500"/>
-</div>
+Go into code for water sensor level 
 
-When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. My family has an old android phone that I will try and revive over thanksgiving, but in the mean time I will come up with a back up plan (see further below):
+<u> Prototyping part 2 </u>
 
-Here is the Arduino code linked to the app software. It took a while for me to understand all the variables and class structure, but PK helped a lot!: 
+Pump 
+Perhaps one of my biggest obstacles for this project was finding a way to simplify the construction of a water pump. It had to be strong enough to be able to suck up water a vertical distance of 20 cm (i.e. length of bucket more or less) through a diameter of 15 cm, but simple enough such that it could operate off of one of the motors that we have available in class. I did research on simple DIY pumps and all seem to had the following in common:
+- Motor
+- Shaft couple
+- Axel with rotor/ propellor 
+Since there was variation in the type of rotor and motor used I figured I would have some flexibility in these choices as well… I was wrong. 
+1st design – LABEL EACH
+1.  3d printed
 
-<pre><code>
 
-#include <BLEDevice.h>
-#include <BLE2902.h>
-#include <BLEServer.h>
-#include <BLEUtils.h>
 
-//Change for motor and sensor 
+2nd design:
+2.  Cylinder
 
-//intervals for pump motor - change to appropriate ESP32 ones
-const int A1A = 21;  // define pin 3 for A-1A (PWM Speed)
-const int A1B = 22;
 
-//intervals for sensor
-int read_high;
-int read_low;
-int diff; 
-// Change to appropriate pin on arduino
-int result;   //variable for the result of the tx_rx measurement.
-int analog_pin = 32;
-int tx_pin = 33;
-int deviceConnected;
-int txValue;
+3rd design
+3.  Metal
 
 
-BLECharacteristic *pCharacteristic;
+<u> Overall conclusion: Motor was not strong </u>
 
+Regardless of the design it appeared that the water was not being sucked up. I realized right towards the end that my focus might have been misplaced as I was trying hard to think of the most efficient rotor and axyl design. Instead, I should have looked more closely at the motor. I assumed that the motor I was using was adequate given that it had the same voltage rating as some others I had seen in videos (12V), however I completely neglected other factors such as torque. In hindsight I should have looked into using bigger and more powerful motors such as stepper motors, and looked at reducing the diameter of my piper more (i.e. ordered smalling pipes.)
 
+Alternative
+In the end the most feasible option for me was to use a submersible prefab fish tank available in the lab. While this is not ideal in terms of modularity, I created a structure such that it could be added and removed with ease if the pump broke.
 
-//CHANGE UUID AFTER
-#define SERVICE_UUID           "6E400001-B5A3-F393-E0A9-E50E24DCCA9E" // UART service UUID
-#define CHARACTERISTIC_UUID "b661a339-fce2-4672-87a3-122ecef4f531" //randomly generated
-#define CHARACTERISTIC_UUID_RX "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
-#define CHARACTERISTIC_UUID_TX "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
+<u> Connection and Integration </u>
 
-class MyCallbacks: public BLECharacteristicCallbacks{   
-  void onWrite(BLECharacteristic *pCharacteristic) {
-    std::string rxValue = pCharacteristic->getValue();
-    if (rxValue.length() > 0) {
-      Serial.println("*********");
-      Serial.print("Received Value: ");        
-      for (int i = 0; i < rxValue.length(); i++) {
-        Serial.print(rxValue[i]);
-      }
-      Serial.println();     // Do stuff based on the command received from the app
-    
-      //TURN PUMP on and off based off button
-      if (rxValue.find("A") != -1) { 
-                Serial.print("Turning ON!");
-                digitalWrite(A1A, HIGH);
-                digitalWrite(A1B, LOW);
-              }
-      else if (rxValue.find("B") != -1) {
-                Serial.print("Turning OFF!");
-                digitalWrite(A1A, LOW);
-                digitalWrite(A1B, LOW);
-              }
-              Serial.println();
-              Serial.println("*********");
-    }
-  }
-};
+Integration of the abovementioned components was key to ensuring successful modularity of my project. I had to strategically think about how each component would be incorporated so that it would be stable but also easily removable. In addition, I had to review what needed to be waterproof and water safe, as different components had different needs. The most important safety aspect was ensuring that all wires would not be exposed to wire. This proved to not be too challenging as most of the wires were well sealed already. I added the following fixture and used heat shrink to group wires together.
 
-void setup() {
-  pinMode(tx_pin, OUTPUT);      // Pin 4 provides the voltage step
-  
-  Serial.begin(115200);
-  Serial.println("Starting BLE work!");
+Annotate each photo. 
 
-  BLEDevice::init("LaylaESP32");
-  BLEServer *pServer = BLEDevice::createServer();
-  BLEService *pService = pServer->createService(SERVICE_UUID);
+<u> Electrical components </u>
+- Wanted components to unplug easily if it had to be moved around / if something broke
 
-  // Create a BLE Characteristic
-  pCharacteristic = pService->createCharacteristic(
-                                       CHARACTERISTIC_UUID_RX,
-                                       BLECharacteristic::PROPERTY_WRITE
-                                     );
-  pCharacteristic = pService->createCharacteristic(
-                    CHARACTERISTIC_UUID_TX,
-                    BLECharacteristic::PROPERTY_NOTIFY
-                  );
-  pCharacteristic->addDescriptor(new BLE2902());
-  
-  pCharacteristic->setCallbacks(new MyCallbacks());
-  pService->start();
-  // BLEAdvertising *pAdvertising = pServer->getAdvertising();  // this still is working for backward compatibility
-  // Start advertising
-  pServer->getAdvertising()->start();
-  Serial.println("Waiting a client connection to notify...");
+<u> CNC Milling stand </u>
+- Stand to elevate tank
+- Redemption from milling week 
 
-//IF phone sense information
-class MyServerCallbacks: public BLEServerCallbacks {  
-  void onConnect(BLEServer* pServer) {
-      deviceConnected = true;
-    };
-  void onDisconnect(BLEServer* pServer) {
-      deviceConnected = false;
-    }
-};
-
-      
-}
-
-void loop() {
-
- digitalWrite(tx_pin,HIGH);           // Step the voltage high on conductor 1.
-    read_high = analogRead(analog_pin);  // Measure response of conductor 2.
-    delayMicroseconds(100);              // Delay to reach steady state.
-    digitalWrite(tx_pin,LOW);            // Step the voltage to zero on conductor 1.
-    read_low = analogRead(analog_pin);   // Measure response of conductor 2.
-    diff = read_high - read_low;         // desired answer is the difference between high and low.
-    result = ((diff-857)/1.1);
-    Serial.print("Result: ");
-    Serial.println(result);
-    delay(1000);
-
-
- if (deviceConnected) {
-    // PUT CAPCITOR SENSOR LEVEL IN HERE plus conversion  
-    txValue = result ; // This could be an actual sensor reading!
-    // Let's convert the value to a char array:
-    char txString[8]; // make sure this is big enuffz
-    dtostrf(txValue, 1, 2, txString); // float_val, min_width, digits_after_decimal, char_buffer
-//    
-//  pCharacteristic->setValue(&txValue, 1); // To send the integer value
-//  pCharacteristic->setValue("Hello!"); // Sending a test message
-    pCharacteristic->setValue(txString);
-    
-    pCharacteristic->notify(); // Send the value to the app!
-//    Serial.print("*** Sent Value: ");
-//    Serial.print(txString);
-//    Serial.println(" ***");
-  }
-
-
-  delay(1000);
-}
-
-
-
-</code></pre>
-
-The one win from this project is that I got my phone to connect to the ESP32:
-
-<div class = "center">
-  <img src="../12/bluetooth.jpeg" 
-     width ="200" height="350"/>
-</div>
-
-
-
-<u>Backup plan </u>
-
-As a backup plan I created the code for communication between two ESP32Ns. Essentially one ESP32N would be connected to a button and a screen and perform the same functions that the app would. Worst case scenario I can turn this into a fully fuctioning remote.
-
-Here is a schematic:
-
-This was relatively easy to execute since I had worked with ESP-NOW with Andrei in week 9. I had to update the code since now both ESP32Ns were the senders and receivers but I followed this tutorial to help me with that.
-
-
-Here is the code :
-
-
-Code 1 - for button and screen
-
-
-<pre><code>
-
-#include <esp_now.h>
-#include <WiFi.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
-#define SCREEN_WIDTH 128  // OLED display width, in pixels
-#define SCREEN_HEIGHT 64  // OLED display height, in pixels
-
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-#//Bellow I define the pins I will use for the RGB LED and the Buttons
-
-//intervals for sensor
-int read_high;
-int read_low;
-int diff; 
-// Change to appropriate pin on arduino
-int result;   //variable for the result of the tx_rx measurement.
-int analog_pin = 32;
-int tx_pin = 33;
-int txValue;
-
-const int A1A = 21;  // define pin 3 for A-1A (PWM Speed)
-const int A1B = 22;
-
-
-// REPLACE WITH THE MAC Address of your receiver 
-uint8_t broadcastAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
-
-// I initiate the "last" and "current" states of the three buttons, with the last always being LOW at the beggining of the program
-int lastState1 = LOW;
-int currentState1;
-
-
-// Define variables to store BME280 readings to be sent
-float waterlevel;
-
-
-
-// Define variables to store incoming readings
-bool button;
-
-// Variable to store if sending data was successful
-String success;
-
-//Structure example to send data
-//Must match the receiver structure
-typedef struct struct_message {
-    float waterlevel;
-    bool button;
-} struct_message;
-
-// Create a struct_message called BME280Readings to hold sensor readings
-struct_message sensorReadings;
-
-// Create a struct_message to hold incoming sensor readings
-struct_message incomingReadings;
-
-esp_now_peer_info_t peerInfo;
-
-// Callback when data is sent
-void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
-  if (status ==0){
-    success = "Delivery Success :)";
-  }
-  else{
-    success = "Delivery Fail :(";
-  }
-}
-
-// Callback when data is received
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
-  memcpy(&incomingReadings, incomingData, sizeof(incomingReadings));
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  waterlevel = incomingReadings.button;
-
-}
-  
- 
-void setup() {
-  // Init Serial Monitor
-  Serial.begin(115200);
-
-  // Set device as a Wi-Fi Station
-  WiFi.mode(WIFI_STA);
-
-  // Init ESP-NOW
-  if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
-    return;
-
- // initialize serial communication at 115200 bits per second:
-  Serial.begin(115200);
-  
-  }
-  
-
-  // Once ESPNow is successfully Init, we will register for Send CB to
-  // get the status of Trasnmitted packet
-  esp_now_register_send_cb(OnDataSent);
-  
-  // Register peer
-  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  peerInfo.channel = 0;  
-  peerInfo.encrypt = false;
-  
-  // Add peer        
-  if (esp_now_add_peer(&peerInfo) != ESP_OK){
-    Serial.println("Failed to add peer");
-    return;
-  }
-  // Register for a callback function that will be called when data is received
-  esp_now_register_recv_cb(OnDataRecv);
-}
-
- 
-void loop() {
-
-// read the state of all the buttons
-  //The if statement only acts when the button is released, not pressed - specifically for button 1
-
-  
-  
-      // Send the water level via ESP-NOW
-      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &sensorReadings, sizeof(sensorReadings));
- if (button == 1) {
-  digitalWrite(A1A, HIGH);      //Switch pump on
-  digitalWrite(A1B, LOW); 
-  delay(10);                          //Wait 1 Second
-  }
-  else if (button ==0 ) {
-  digitalWrite(A1A, HIGH);      //Switch pump ofF
-  digitalWrite(A1B, LOW);
-  delay(10);                          //Wait 1 Second
-  }
-  
-
-   
-  if (result == ESP_OK) {
-    Serial.println("Sent with success");
-  }
-  else {
-    Serial.println("Error sending the data");
-  }
-
-  digitalWrite(tx_pin,HIGH);           // Step the voltage high on conductor 1.
-    read_high = analogRead(analog_pin);  // Measure response of conductor 2.
-    delayMicroseconds(100);              // Delay to reach steady state.
-    digitalWrite(tx_pin,LOW);            // Step the voltage to zero on conductor 1.
-    read_low = analogRead(analog_pin);   // Measure response of conductor 2.
-    diff = read_high - read_low;         // desired answer is the difference between high and low.
-    waterlevel = ((diff-857)/1.1);
-    Serial.print("Result: ");
-    Serial.println(waterlevel);
-    delay(1000);
-
- 
-  
-  Serial.println();
-}
-</code></pre>
-
-
-
-Code 2 - for water system
-Still going to try to get app to work - ideal
-
-
-<pre><code>
-
-#include <esp_now.h>
-#include <WiFi.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
-#define SCREEN_WIDTH 128  // OLED display width, in pixels
-#define SCREEN_HEIGHT 64  // OLED display height, in pixels
-
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-#//Bellow I define the pins I will use for the RGB LED and the Buttons
-#define BUTTON_PIN_1 21  // GIOP21 pin connected to button
-#define PIN_BLUE   5 // GIOP21
-//intervals for sensor
-int read_high;
-int read_low;
-int diff; 
-// Change to appropriate pin on arduino
-int result;   //variable for the result of the tx_rx measurement.
-int analog_pin = 32;
-int tx_pin = 33;
-int txValue;
-
-int Button1;
-
-// REPLACE WITH THE MAC Address of your receiver 
-uint8_t broadcastAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
-
-// I initiate the "last" and "current" states of the three buttons, with the last always being LOW at the beggining of the program
-int lastState1 = LOW;
-int currentState1;
-
-
-// Define variables to store BME280 readings to be sent
-bool button;
-
-
-// Define variables to store incoming readings
-float waterlevel;
-
-// Variable to store if sending data was successful
-String success;
-
-//Structure example to send data
-//Must match the receiver structure
-typedef struct struct_message {
-    float waterlevel;
-    bool button;
-} struct_message;
-
-// Create a struct_message called BME280Readings to hold sensor readings
-struct_message ButtonReadings;
-
-// Create a struct_message to hold incoming sensor readings
-struct_message incomingReadings;
-
-esp_now_peer_info_t peerInfo;
-
-// Callback when data is sent
-void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
-  if (status ==0){
-    success = "Delivery Success :)";
-  }
-  else{
-    success = "Delivery Fail :(";
-  }
-}
-
-// Callback when data is received
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
-  memcpy(&incomingReadings, incomingData, sizeof(incomingReadings));
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  waterlevel = incomingReadings.waterlevel;
-
-}
-  
- 
-void setup() {
-  // Init Serial Monitor
-  Serial.begin(115200);
-
-  // Set device as a Wi-Fi Station
-  WiFi.mode(WIFI_STA);
-
-  // Init ESP-NOW
-  if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
-    return;
-
- // initialize serial communication at 115200 bits per second:
-  Serial.begin(115200);
-  //I initiate the Button pins as inputs with internal PULLUP resistors
-  pinMode(BUTTON_PIN_1, INPUT_PULLUP);
-  pinMode(PIN_BLUE, OUTPUT);
-  // Set device as a Wi-Fi Station
-  WiFi.mode(WIFI_STA);
-  // Init ESP-NOW
-  if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
-    return;
-  
-  }
-  
-
-  // Once ESPNow is successfully Init, we will register for Send CB to
-  // get the status of Trasnmitted packet
-  esp_now_register_send_cb(OnDataSent);
-  
-  // Register peer
-  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  peerInfo.channel = 0;  
-  peerInfo.encrypt = false;
-  
-  // Add peer        
-  if (esp_now_add_peer(&peerInfo) != ESP_OK){
-    Serial.println("Failed to add peer");
-    return;
-  }
-  // Register for a callback function that will be called when data is received
-  esp_now_register_recv_cb(OnDataRecv);
-}
-}
- 
-void loop() {
-
-// read the state of all the buttons
-  //The if statement only acts when the button is released, not pressed - specifically for button 1
-  if(lastState1 == HIGH && currentState1 == LOW){
-    Serial.println("The button 1 was pressed"); //For debugging - I print the button that was pressed
-    //RGB LED goes blue because a button was pressed
-    analogWrite(PIN_BLUE,  255);
-    ButtonReadings.button = true; // The data we will send will be "false" - which opens the solenoid
-      }
-   else{ButtonReadings.button = false; // If the variable is even, it sends "true" - which locks the solenoid
-        analogWrite(PIN_BLUE,  0); //Then it stops}      
-              
-  
-      // Send the boolean via ESP-NOW
-      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &ButtonReadings, sizeof(ButtonReadings));
-          
-  
- 
-   
-  if (result == ESP_OK) {
-    Serial.println("Sent with success");
-  }
-  else {
-    Serial.println("Error sending the data");
-  }
-  display.display();
-  delay(10000);
-  display.clearDisplay();
-}
-
-
-  // Display Readings on OLED Display
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(0, 0);
-  display.println("INCOMING READINGS");
-  display.setCursor(0, 15);
-  display.print("Water level: ");
-  display.print(incomingReadings.waterlevel);
-  display.cp437(true);
-  display.print("mL");
-  display.print(success);
-  display.display();
-  
-  // Display Readings in Serial Monitor
-  Serial.println("INCOMING READINGS");
-  Serial.print("Water level: ");
-  Serial.print(incomingReadings.waterlevel);
-  Serial.println(" mL");
-  
-  Serial.println();
-}
-
-</code></pre>
-
-
-Next steps for project:
-
-1. Finish 3d printing filter parts
-
-2. Testing app on Android phone
-
-3. Testing water sensor (Soil moisture sensor)
-
-4. Turning motor to pump (worst case use pump available in lab)
-
-5. Put system together
 
 
 </xmp>

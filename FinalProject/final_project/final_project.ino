@@ -8,11 +8,11 @@
 //constants for pump motor
 const int A1A = 15; // define pin 3 for A-1A (PWM Speed)
 const int A1B = 2;
-const int Sensor =12;
+const int Sensor = 4;
 
 //constants for sensor
 int SensorValue ;
-int tx_pin = 33;
+int tx_pin ;
 
 // constants for bluetooth 
 //bool deviceConnected = false;
