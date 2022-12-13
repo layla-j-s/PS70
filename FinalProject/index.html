@@ -3,6 +3,8 @@
 
 <title>PS70: Intro to Digital Fabrication </title>
 <head>
+<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto Condensed'>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
@@ -11,10 +13,25 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="image.css">
 
+<style>
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color: rgb(212, 234, 246);
+        }
+
+        </style>
+
+<style>
+.body {background-color: rgb(249, 248, 255); font-family: Roboto Slab; font-weight: 300px; align:justify;}
+h1 {font-family:Roboto Condensed; font weight:1000px; color:rgb(212, 234, 246);}
+.h2 {font-family:Roboto Condensed; font weight:800px; color:rgb(0, 0, 0);}
+</style>
+
 
 <!--/*Source: Navbar Bootstrsap -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <span class="navbar-brand mb-0 h1"> PS 70: Intro to Digital Fabrication</span>
+<nav class="navbar navbar-expand-md navbar-custom">
+  <span class="navbar-brand mb-0 h2"> PS 70: Intro to Digital Fabrication</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="collapse" >
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,7 +74,7 @@ body {background-color: rgb(232, 245, 233);}
 </style>
 
 <body class="Avantgarde" font-weight=300px align="justify">
-<h1 font weight=700px>Final Project: Planning</h1>
+<h1 font weight=700px>Final Project: Planning and Ideation </h1>
 
 <xmp style="display:none;">
 <br> 
@@ -137,6 +154,77 @@ Ideally, I would like all components to be encapsulated in one part, as shown in
 My largest concern at the moment is that a lot of the parts I require cannot be recreated without specific materials. I want my project to involve lots of building and build upon the skills from class but I also would like it to be focused on water systems. I therefore need to try to find a balance between the two. 
 
 
+
+<h1 font weight=700px>FINAL RESULTS</h1>
+
+<b>Goal</b>
+
+To create a household (i.e. small scale) , cost-effective water system with an emphasis on modularity of components to improve sustainability and user-friendliness. The system is controlled from a phone app via Bluetooth for areas that do not have access to Wi-Fi or cell signal. 
+
+<u>Overall view of designs</u>
+Individual components labelled
+
+System together (labelled)
+
+
+<b>Video</b>
+
+<video width ="600" height="1000" >
+  <source src="../FinalProject/final_project.mp4" type="video/mp4" style="float:center"/>
+</video>
+
+<b>Overview of each component</b>
+
+<u>Pump</u>
+
+The “Jinhe motor submersible Bilge pump” used for fish-tanks was used in place of the dc pump  I constructed that did not work. This pump takes 12 V DC and 0.36 amps and was sufficiently powerful enough for the scope of this project. The pump takes roughly 1 cm diameter tubing. In in order to connect the pump to the PVC (with the tubing placed within) a 3d printed connector was designed. This pump is highly affordable at only 10 dollars.
+
+The corresponding code for the pump is shown below (note that it is connected to a L9110 Bridge Power Driver).
+
+<u>Filter</u>
+
+The filter is modelled of this 5-stage filter, with the main difference being removable compartments. Components were extracted from the purchased filter and mesh was purchased separately. The mesh was secured to the compartments of the filter using a press-fit, additional 3d printed ring. PETG filament was used given its water-safe and waterproof qualities, however additional silicone coating was required to further seal the print.
+
+
+<u>Water Sensor</u>
+
+The Gilkfun capacitive soil moisture was used in place of capacitive sensors due to less variability and therefore more reliability in water level readings. Additionally the pre-purchased sensor is corrosion resistant allowing for more sustainability. This sensor is also highly cost effective at under 10 dollars.
+The corresponding code for the water sensor is shown below:
+
+<u> Bluetooth App</u>
+
+The Bluetooth app was modeled using MIT App inventor which follows block-based coding. I followed tutorials to learn how to call functions and set variables using this type of code and then modified the variables to fit my design. The app currently scans for Bluetooth devices and allows you to select a device to connect to. Once a device is connected to, the pump on and off button appears as well as water level reader. You may toggle between on and off and three different possible outputs will appear for the water level :
+1)  Low level – turn off pump immediately
+2)  Medium level
+3)  High level
+
+
+<u> Fittings / stand / electrical components </u>
+Below are some additional components used to increase modularity. The captions explain their intended use.
+
+INSERT IMAGES
+
+
+
+<u> All downloadable components </u>
+
+<a download href='../FinalProject/big_final_drawer_Layla.stl'>Download STL file for large compartment of filter </a>
+
+<a download href='../FinalProject/small_drawer.stl'>Download STL file for smaller compartment of filter  </a>
+
+<a download href='../FinalProject/connector_pipetobucket_Layla.stl'>Download STL file for the pipe to bucket connectors</a>
+
+<a download href='../FinalProject/prefabpumptopvc.stl'>Download STL file for the connector for prefab pump to pvc pipe </a>
+
+<a download href='../FinalProject/sensor_to_pvc.stl'>Download my gcode for the attacher for the sensor to the pvc pipe </a>
+
+<a download href='../FinalProject/wire_connector_Layla.stl'>Download my gcode for top component slicing </a>
+
+<a download href='../FinalProject/bucket_stand.dxf'>Download my dxf file for the bucket stand</a>
+
+<a download href='../FinalProject/bluetooth_connection.apk'>Download my code for my bluetooth app</a>
+
+<a download href='../FinalProject/final_project/final_project.ino'>Download my arduino code</a>
 
 
 
