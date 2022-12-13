@@ -23,6 +23,28 @@
         </style>
 
 <style>
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .body {background-color: rgb(249, 248, 255); font-family: Roboto Slab; font-weight: 300px; align:justify;}
 h1 {font-family:Roboto Condensed; font weight:1000px; color:rgb(212, 234, 246);}
 .h2 {font-family:Roboto Condensed; font weight:800px; color:rgb(0, 0, 0);}
@@ -159,16 +181,23 @@ My largest concern at the moment is that a lot of the parts I require cannot be 
 To create a household (i.e. small scale) , cost-effective water system with an emphasis on modularity of components to improve sustainability and user-friendliness. The system is controlled from a phone app via Bluetooth for areas that do not have access to Wi-Fi or cell signal. 
 
 <u>Overall view of designs</u>
+
+
+<img src="individual_labelled.jpeg" alt="labelled system" class="center">
+
 Individual components labelled
 
-System together (labelled)
+System together 
+
+<img src="system_labelled.jpeg" alt="labelled system" class="center">
 
 
 <b>Video</b>
-
-<video width ="600" height="1000" controls >
-  <source src="../FinalProject/final_project.mp4" type="video/mp4" style="float:center"/>
-</video>
+<center>
+  <video width ="600" height="1000" controls >
+    <source src="../FinalProject/final_project.mp4" type="video/mp4" style="float:center"/>
+  </video>
+</center>
 
 <b>Overview of each component</b>
 
@@ -176,17 +205,19 @@ System together (labelled)
 
 The “Jinhe motor submersible Bilge pump” used for fish-tanks was used in place of the dc pump  I constructed that did not work. This pump takes 12 V DC and 0.36 amps and was sufficiently powerful enough for the scope of this project. The pump takes roughly 1 cm diameter tubing. In in order to connect the pump to the PVC (with the tubing placed within) a 3d printed connector was designed. This pump is highly affordable at only 10 dollars.
 
-The corresponding code for the pump is shown below (note that it is connected to a L9110 Bridge Power Driver).
 
 <u>Filter</u>
 
 The filter is modelled of this 5-stage filter, with the main difference being removable compartments. Components were extracted from the purchased filter and mesh was purchased separately. The mesh was secured to the compartments of the filter using a press-fit, additional 3d printed ring. PETG filament was used given its water-safe and waterproof qualities, however additional silicone coating was required to further seal the print.
 
+<img src="filter.jpeg" alt="filter" style="width:100%"  class="center">
 
 <u>Water Sensor</u>
 
 The Gilkfun capacitive soil moisture was used in place of capacitive sensors due to less variability and therefore more reliability in water level readings. Additionally the pre-purchased sensor is corrosion resistant allowing for more sustainability. This sensor is also highly cost effective at under 10 dollars.
-The corresponding code for the water sensor is shown below:
+
+
+<img src="sensor.jpeg" alt="Sensor" style="width:100%"  class="center">
 
 <u> Bluetooth App</u>
 
@@ -195,11 +226,23 @@ The Bluetooth app was modeled using MIT App inventor which follows block-based c
 2)  Medium level
 3)  High level
 
+<img src="bluetooth.jpeg" alt="Bluetooth" style="width:100%"  class="center">
 
 <u> Fittings / stand / electrical components </u>
+
 Below are some additional components used to increase modularity. The captions explain their intended use.
 
-INSERT IMAGES
+<div class="row">
+  <div class="column">
+    <img src="cup.jpeg" alt="Cup" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="board.jpeg" alt="Board" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="pump_connetcion.jpeg" alt="Pump connector " style="width:100%">
+  </div>
+</div>
 
 
 
