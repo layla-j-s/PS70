@@ -59,7 +59,7 @@ h1 {font-family:Roboto Condensed; font weight:1000px; color:rgb(212, 234, 246);}
 </style>
 
 <!--/*Source: Navbar Bootstrsap -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-customk">
   <span class="navbar-brand mb-0 h1"> PS 70: Intro to Digital Fabrication</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="collapse" >
     <span class="navbar-toggler-icon"></span>
@@ -180,7 +180,7 @@ digitalWrite(tx_pin,HIGH);           // Step the voltage high on conductor 1.
     Serial.println(waterlevel);
     delay(1000);
 
-</code><pre>
+</code></pre>
 
 I decided, therefore, to switch to a soil moisture premade sensor. While this automatically increased the accuracy and reduced variability of readings, there was a large associated downside. Apart from decreasing modularity and accessibility factors, I was greatly limited by the length of the soil moisture sensor. It was only about 10 cm long but my prefab tank (aka bucket I found in the PS 70 lab) was over 25 cm. With the capacitive sensors I could customize just about everything including the length and therefore recorded water level. With this limitation in mind I decided to evolve my original design such that, instead of a direct water level reading the app would output a generic level reading: “High water level”, “medium water level”, or “Low water level” with an additional warning sign for the low level water to turn off the pump immediately.
 This is a great example of a limitation that allowed me to remember the core driving factors of my final project. In this case I believe this limitation helped allow me to remember my project’s focus and recenter.  This adjusted feature is easier for the user to understand (rather than arbitrary water level numbers).
@@ -209,7 +209,7 @@ After acquiring an old android phone from a friend I was able to test out the Bl
 
 After adding in code to scan, stop scanning, connect and disconnect from a device (following THIS tutorial), I had my first successful connection with the app and ESP32!!
 
-<img src="app.jpeg" alt="Sensor" style="width:90%"  class="center">
+<img src="app_scratch.jpg" alt="Sensor" style="width:90%"  class="center">
 
 
 <u> Prototyping part 2 </u>
@@ -225,7 +225,7 @@ Since there was variation in the type of rotor and motor used I figured I would 
 
 <div class="row">
   <div class="column">
-    <img src="pump1.jpeg" alt="Pump 1" style="width:10%">
+    <img src="pump1.jpeg" alt="Pump 1" style="width:100%">
   </div>
   <div class="column">
     <img src="pump2.jpeg" alt="Pump 2" style="width:100%">
@@ -255,13 +255,13 @@ A collage of failures that didn't make it:
 
 <div class="row">
   <div class="column">
-    <img src="prototype1.jpeg" alt="prototype1" style="width:10%">
+    <img src="prototype1.jpeg" alt="prototype1" style="width:100%">
   </div>
   <div class="column">
     <img src="prototype2.jpeg" alt="prototype2" style="width:100%">
   </div>
   <div class="column">
-    <img src="prototype1.2.jpeg" alt="prototype1 print failed " style="width:100%">
+    <img src="prototype1.2.jpeg" alt="prototype1 print failed " style="width:500%">
   </div>
 </div>
 
@@ -270,10 +270,10 @@ A collage of failures that didn't make it:
     <img src="prototype3.1.jpeg" alt="prototype1" style="width:100%">
   </div>
   <div class="column">
-    <img src="prototype3,2.jpeg" alt="prototype2" style="width:100%">
+    <img src="prototype3.2.jpeg" alt="prototype2" style="width:100%">
   </div>
   <div class="column">
-    <img src="app.jpeg" alt="prototype1 print failed " style="width:100%">
+    <img src="app.jpeg" alt="prototype1 print failed " style="width:70%">
   </div>
 </div>
 
