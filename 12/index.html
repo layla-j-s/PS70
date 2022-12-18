@@ -114,6 +114,7 @@ h1 {font-family:Roboto Condensed; font weight:1000px; color:rgb(212, 234, 246);}
 
 The goal for my final project was to create a design for a small scale water distribution system while keeping it as modular as possible. This modularity would allow for increased user agency in the maintenance and monitoring of the water system. For example, by breaking a pump down to it’s simplest components, users would only have to check a few components if there was ever a malfunction. Additionally, modularity is in line with sustainability. This is shown clearly with respect to bio filters, which often involve many different components that can be sourced locally but are always packaged as one filter (i.e. impossible to replace one part alone without replacing the whole filter). While this idea of modularity remained present and the underlying goal throughout the design process, the ideation from start to finish changed drastically. Below is a schematic of my initial goal versus final. This was compiled with an application that communicates with the water system via bluetooth and allows the user to monitor water levels as well as turn off and on the pump accordingly
 
+INSERT SCHEMATIC 
 
 For learning purposes, I have divided my final project development page based on learning outcomes and specific skills acquired throughout the class. For a summary of the final project, video demo, as well as a brief explanation of each component, please click [here](../FinalProject/index.html).
 
@@ -132,6 +133,7 @@ The final STL file can be found on the [Final Project Page](../FinalProject/inde
 
 Originally, I had planned to directly incorporate mesh fitting into my design, however after discussing with Nathan I realized that the 3D printer was not optimized for this sort of design (shown below). I decided to use stainless stell metal mesh filter with 0.18mm holes. This also went along nicely with my underlying modularity goals as it would be easy and cheap to replace. I decided, therefore, that the best way to attach this metal meshes would be a press fit methodology with an additional printed ring to squeeze on top of the mesh. After running a few test prints and trial and error, I managed to get the right weighting, diameter and thickness to hold the mesh in place.
 
+<img src="mesh_3D.png" alt="Sensor" style="width:90%"  class="center">
 
 
 <u> Filter components </u>
@@ -139,11 +141,11 @@ Originally, I had planned to directly incorporate mesh fitting into my design, h
 Knowing that the actual components were something that I could not reproduce within the lab, I decided to order this 5-stage filter on amazon comprised of the following components: activated carbon, resin, silica sand, infrared ceramic balls, mineral sand, and mineral stones. I decided to follow a similar ratio as the one presented in the available filter as my goal was not to change the make up of filters (as I am no expert in this area) but simply focus on their modularity. While I did not get around to this I would eventually like to test my filter out with a simple water quality testing kit to understand if my filter is actually sufficient in removing harmful bacteria, without any fancy membranes or osmosis procedure as offered by many filters nowadays. Additionally, it would be interesting to test the effectiveness of locally sourced materials vs manufactured materials with respect to components such as sand or gravel.
  
 <u> Filter Coating </u>
-After putting together my compartmentalized filter and testing it, I realized that it was still prone to leaks and that the PETG filament was not completely waterproof. This was pretty disappointing as I realized this relatively late into the design process where it was too late to explore other proclaimed waterproof filaments. I decided therefore to try coating it with different materials. The first material I tried was acrylic (FIND NAME OF COATING) , which suggested given that he uses it for coating electrical materials and protecting them against moisture. This worked okay as it reduced leaks but there were still a significant amount. I next tried (FIND NAME), another type of coating that uses silicone instead. While I wasn’t exactly sure of all the individual components and uses of this coating material, a quick google search showed that silicone is generally considered water safe. This test run yielded better results, and had slightly less leaking. Overall, I would not say that the filter is 100% water proof. In the future I would need to explore the effect of thickness of the coating, as well as look into other alternatives that are available. 
+After putting together my compartmentalized filter and testing it, I realized that it was still prone to leaks and that the PETG filament was not completely waterproof. This was pretty disappointing as I realized this relatively late into the design process where it was too late to explore other proclaimed waterproof filaments. I decided therefore to try coating it with different materials. The first material I tried was an acrylic coating, which suggested given that he uses it for coating electrical materials and protecting them against moisture. This worked okay as it reduced leaks but there were still a significant amount. I next tried the silicone waterproof coating available in the lab. While I wasn’t exactly sure of all the individual components and uses of this coating material, a quick google search showed that silicone is generally considered water safe. This test run yielded better results, and had slightly less leaking. Overall, I would not say that the filter is 100% water proof. In the future I would need to explore the effect of thickness of the coating, as well as look into other alternatives that are available. 
 
 <u> Water + Cup design </u>
 
-Given that this water system is meant to be for small scale use, I decided to build a start to end flow of water. This meant that I wanted to show the process from the tank all the way to the cup. Because of this, I thought that by designing the filter so that it would act as an add-on component to a cup stand would help make the design more human. Below are my CAD drawings for the design and a photo of the components together.
+Given that this water system is meant to be for small scale use, I decided to build a start to end flow of water. This meant that I wanted to show the process from the tank all the way to the cup. Because of this, I thought that by designing the filter so that it would act as an add-on component to a cup stand would help make the design more human. The CAD drawings for the design can be found on the Final Page.
 
 <u> Input electronic devices </u>
 
@@ -194,23 +196,34 @@ This is a great example of a limitation that allowed me to remember the core dri
 
 The second challenge I tackled this week was attempting to code the app and ESP32 for my bluetooth information. The goal behind this was to have a fully functioning app that would receive water level data from a sensor in the water system and also have two buttons to turn off and on the pump. I thought about programming it so that the pump would automatically shut off after a certain amount but I realized since this was a small scale water system it would make more sense to prioritize user autonomy so the user could turn off the pump whenever they didn't want to use it regardless of water level.
 
-I started first with the Arduino code as I wanted to make sure the Bluetooth component was all settled before moving on to the ap development. I decided to follow THIS Bluetooth Low Energy (BLE) tutorial. Ultimately, BLE seemed like the more appropriate option given that I would not be sending large amount of data, and want to focus on more energy efficient and cost-effective designs when applicable. 
+I started first with the Arduino code as I wanted to make sure the Bluetooth component was all settled before moving on to the ap development. I decided to follow [this](https://randomnerdtutorials.com/esp32-bluetooth-low-energy-ble-arduino-ide/) Low Energy (BLE) tutorial. Ultimately, BLE seemed like the more appropriate option given that I would not be sending large amount of data, and want to focus on more energy efficient and cost-effective designs when applicable. 
 
 The most confusing part for me was understanding the difference between a Server and Client. I tried to equate it to the sender and receiver from ESP radio which ended up confusing me more since in my case, the app sends a signal to turn off and, on a pump, but the esp32 sends data regarding the water level so there is a two-way transfer of data. After doing more research, I realized that Server and Client only relate to the actual Bluetooth connect. The server advertises its existence while the client scans for devices and finds it. I therefore decided to make my phone the client and my esp32 the server. 
 
 
 I first tested the esp32 with my phone using nRF connect as shown below. My phone was able to discover the esp32 easily, however when I went to the read write function and went to send an “A” which corresponds to the Boolean “True” in my code (thereby turning the pump on), the esp32 received no value. I figured this was an issue with my phone and tried by trial and error to torubleshoot by sending different values, changing it to read and write, and trying to overwrite the esp32 so the value sent regardless if it was accepted. I eventually looked more closely at my code and realized that the error was how I initialized my variable that would be accepting this value. It was listed as an integer rather than a Boolean. 4 hours of debugging later and I had solved it! This exercise helped my understanding of code a lot, especially in working with PK to understand the different forms in which information can be sent (character, string, etc.).
 
+<b>Video</b>
+<center>
+  <video width ="600" height="1000" controls >
+    <source src="../nrf.mp4" type="video/mp4" style="float:center"/>
+  </video>
+</center>
+
+
 <u> APP Development </u>
 
-I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed this super helpful tutorial and imported the demo apo code. Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
+I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed (this)[https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/] super helpful tutorial and imported the demo apo code.Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
+
 However, when I went to test this on my Iphone I kept getting this error:
 
-When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. My family has an old android phone that I will try and revive over thanksgiving, but in the mean time I will come up with a back up plan 
+<img src="runtime_error.jpg" alt="Sensor" style="width:100%"  class="center">
+
+I decided to switch over to the MIT app inventor, as it seemed more user-friendly and more updated. This meant taking the time to understand how the block-coding I had seen in the tutorial could also be applied to a similar software. The only real difference was that the MIT app inventor required a new version of bluetooth add ins, which meant that the functions had different names. When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. 
 
 After acquiring an old android phone from a friend I was able to test out the Bluetooth feature on the phone. I would connect the phone to the esp32 through NRF connect as shown above and then open the app on my phone using the AI companion feature which essentially allows you the project the app on your phone through WIFI before it is published in the app store (which can be a very lengthy process). While each of these components worked individually, I found that every time I got the app companion to load it would disconnect from Bluetooth. I spent hours trying to debug both my Arduino code and app coding before I realized what the error was: in order to use an app that connect to the esp32 using Bluetooth, you must include code such that you can connect to the Bluetooth through the app. For some reason the app did not recognize third party connections.
 
-After adding in code to scan, stop scanning, connect and disconnect from a device (following THIS tutorial), I had my first successful connection with the app and ESP32!!
+After adding in code to scan, stop scanning, connect and disconnect from a device (following (this)[https://iot.appinventor.mit.edu/assets/howtos/MIT_App_Inventor_Basic_Connection.pdf]tutorial), I had my first successful connection with the app and ESP32!!
 
 <img src="app_scratch.jpg" alt="Sensor" style="width:90%"  class="center">
 
