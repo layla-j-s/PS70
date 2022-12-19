@@ -123,9 +123,8 @@ For learning purposes, I have divided my final project development page based on
 3D printing was an essential part of the prototyping process for both the fixtures as well as the design of the filter itself. As explained before, I wanted to design a filter with removable drawer-like compartments that would contain individual components typically packaged within a filter. This was simple in theory, however, in practice proved much more challenging; I needed something that would be 1) water proof 2) compartments that are easy to remove for anyone (i.e not overly complex mechanisms) and 3) Compartments that were compact so as to not allow for water leakage. Points 2) and 3) proved especially challenging as every time I thought of a design that fulfilled one criteria it often went against the other. In order to try and satisfy criteria one, I decided to use PETG filament for my 3D prints, which, according to multiple online sources, does a pretty good job at being water safe and water proof.
 
 
-
 Little things with the 3D printing proved difficult as well. It took me a while to realize that my prints kept failing because the optimal PETG settings are fairly different from those of PLA. Once I changed the setting to 230 nozzle temp and around 85 for bed temp it worked much better! In addition, since I wanted my compartments to take a “press-fit” form to aid with criteria 3), it was important to get the dimensions as close as possible. This was tough because I had never realized before that there is a “kerf” equivalent in 3D printing, meaning that we need to account for the space taken up by filament and perhaps space that has been shrunk from heating. I’m still not exactly sure what a good number for this is but I settled on 0.5 mm as a conservative estimate. 
-Below is my first 3d print and final 3d print, with each component laid out separately
+
 
 The final STL file can be found on the [Final Project Page](../FinalProject/index.html)
 
@@ -133,7 +132,9 @@ The final STL file can be found on the [Final Project Page](../FinalProject/inde
 
 Originally, I had planned to directly incorporate mesh fitting into my design, however after discussing with Nathan I realized that the 3D printer was not optimized for this sort of design (shown below). I decided to use stainless stell metal mesh filter with 0.18mm holes. This also went along nicely with my underlying modularity goals as it would be easy and cheap to replace. I decided, therefore, that the best way to attach this metal meshes would be a press fit methodology with an additional printed ring to squeeze on top of the mesh. After running a few test prints and trial and error, I managed to get the right weighting, diameter and thickness to hold the mesh in place.
 
-<img src="mesh_3D.png" alt="Sensor" style="width:90%"  class="center">
+<img src="mesh_3D.png" alt="3D mesh" style="width:90%"  class="center">
+
+<img src="mesh.jpeg" alt="Actual mesh" style="width:100%"  class="center">
 
 
 <u> Filter components </u>
@@ -141,11 +142,14 @@ Originally, I had planned to directly incorporate mesh fitting into my design, h
 Knowing that the actual components were something that I could not reproduce within the lab, I decided to order this 5-stage filter on amazon comprised of the following components: activated carbon, resin, silica sand, infrared ceramic balls, mineral sand, and mineral stones. I decided to follow a similar ratio as the one presented in the available filter as my goal was not to change the make up of filters (as I am no expert in this area) but simply focus on their modularity. While I did not get around to this I would eventually like to test my filter out with a simple water quality testing kit to understand if my filter is actually sufficient in removing harmful bacteria, without any fancy membranes or osmosis procedure as offered by many filters nowadays. Additionally, it would be interesting to test the effectiveness of locally sourced materials vs manufactured materials with respect to components such as sand or gravel.
  
 <u> Filter Coating </u>
+
 After putting together my compartmentalized filter and testing it, I realized that it was still prone to leaks and that the PETG filament was not completely waterproof. This was pretty disappointing as I realized this relatively late into the design process where it was too late to explore other proclaimed waterproof filaments. I decided therefore to try coating it with different materials. The first material I tried was an acrylic coating, which suggested given that he uses it for coating electrical materials and protecting them against moisture. This worked okay as it reduced leaks but there were still a significant amount. I next tried the silicone waterproof coating available in the lab. While I wasn’t exactly sure of all the individual components and uses of this coating material, a quick google search showed that silicone is generally considered water safe. This test run yielded better results, and had slightly less leaking. Overall, I would not say that the filter is 100% water proof. In the future I would need to explore the effect of thickness of the coating, as well as look into other alternatives that are available. 
 
 <u> Water + Cup design </u>
 
 Given that this water system is meant to be for small scale use, I decided to build a start to end flow of water. This meant that I wanted to show the process from the tank all the way to the cup. Because of this, I thought that by designing the filter so that it would act as an add-on component to a cup stand would help make the design more human. The CAD drawings for the design can be found on the Final Page.
+
+<img src="cup_print.jpg" alt="3d print" style="width:100%"  class="center">
 
 <u> Input electronic devices </u>
 
@@ -205,8 +209,8 @@ I first tested the esp32 with my phone using nRF connect as shown below. My phon
 
 <b>Video</b>
 <center>
-  <video width ="600" height="1000" controls >
-    <source src="../nrf.mp4" type="video/mp4" style="float:center"/>
+  <video width ="300" height="500" controls >
+    <source src="nrf.mp4" type="video/mp4" style="float:center"/>
   </video>
 </center>
 
@@ -217,13 +221,13 @@ I started out using the Thunkable app creator as it was marketed as "user friend
 
 However, when I went to test this on my Iphone I kept getting this error:
 
-<img src="runtime_error.jpg" alt="Sensor" style="width:100%"  class="center">
+<img src="runtime_error.jpeg" alt="runtime error" style="width:100%"  class="center">
 
 I decided to switch over to the MIT app inventor, as it seemed more user-friendly and more updated. This meant taking the time to understand how the block-coding I had seen in the tutorial could also be applied to a similar software. The only real difference was that the MIT app inventor required a new version of bluetooth add ins, which meant that the functions had different names. When I googled and searched a little further I realized that while MIT app inventor is compatible with demo testing on IOS, it's bluetooth features are currently only available on Android. 
 
 After acquiring an old android phone from a friend I was able to test out the Bluetooth feature on the phone. I would connect the phone to the esp32 through NRF connect as shown above and then open the app on my phone using the AI companion feature which essentially allows you the project the app on your phone through WIFI before it is published in the app store (which can be a very lengthy process). While each of these components worked individually, I found that every time I got the app companion to load it would disconnect from Bluetooth. I spent hours trying to debug both my Arduino code and app coding before I realized what the error was: in order to use an app that connect to the esp32 using Bluetooth, you must include code such that you can connect to the Bluetooth through the app. For some reason the app did not recognize third party connections.
 
-After adding in code to scan, stop scanning, connect and disconnect from a device (following (this)[https://iot.appinventor.mit.edu/assets/howtos/MIT_App_Inventor_Basic_Connection.pdf]tutorial), I had my first successful connection with the app and ESP32!!
+After adding in code to scan, stop scanning, connect and disconnect from a device (following [this](https://iot.appinventor.mit.edu/assets/howtos/MIT_App_Inventor_Basic_Connection.pdf)tutorial), I had my first successful connection with the app and ESP32!!
 
 <img src="app_scratch.jpg" alt="Sensor" style="width:90%"  class="center">
 
@@ -252,6 +256,9 @@ Since there was variation in the type of rotor and motor used I figured I would 
 </div>
 
 
+I had planned to attach one of the prototypes (if succesful) by the top of the PVC pipe with a detachable shaft coupler attachinng the DC motor to the axyl. This would allow for easy replacement if the motor ever broke.
+
+<img src="pump_attachment.jpg" alt="pump attachment" style="width:60%"  class="center">
 
 
 <u> Overall conclusion: Motor was not strong </u>
