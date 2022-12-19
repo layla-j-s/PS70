@@ -217,7 +217,7 @@ I first tested the esp32 with my phone using nRF connect as shown below. My phon
 
 <u> APP Development </u>
 
-I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed (this)[https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/] super helpful tutorial and imported the demo apo code.Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
+I started out using the Thunkable app creator as it was marketed as "user friendly" and requiring little to no code. However, I soon realized it was only compatible with Android. I switched to the MIT app inventor site which claimed that it was compatible with IOS. I followed [this](https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/) super helpful tutorial and imported the demo apo code.Figuring out stracth and deciphering what variables to change was slightly difficult but I think I got it in the end:
 
 However, when I went to test this on my Iphone I kept getting this error:
 
@@ -227,7 +227,7 @@ I decided to switch over to the MIT app inventor, as it seemed more user-friendl
 
 After acquiring an old android phone from a friend I was able to test out the Bluetooth feature on the phone. I would connect the phone to the esp32 through NRF connect as shown above and then open the app on my phone using the AI companion feature which essentially allows you the project the app on your phone through WIFI before it is published in the app store (which can be a very lengthy process). While each of these components worked individually, I found that every time I got the app companion to load it would disconnect from Bluetooth. I spent hours trying to debug both my Arduino code and app coding before I realized what the error was: in order to use an app that connect to the esp32 using Bluetooth, you must include code such that you can connect to the Bluetooth through the app. For some reason the app did not recognize third party connections.
 
-After adding in code to scan, stop scanning, connect and disconnect from a device (following [this](https://iot.appinventor.mit.edu/assets/howtos/MIT_App_Inventor_Basic_Connection.pdf)tutorial), I had my first successful connection with the app and ESP32!!
+After adding in code to scan, stop scanning, connect and disconnect from a device (following [this](https://iot.appinventor.mit.edu/assets/howtos/MIT_App_Inventor_Basic_Connection.pdf) tutorial), I had my first successful connection with the app and ESP32!!
 
 <img src="app_scratch.jpg" alt="Sensor" style="width:90%"  class="center">
 
